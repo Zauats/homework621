@@ -18,30 +18,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         text = findViewById(R.id.imageName);
     }
-    LinkedList<Integer> nums = new LinkedList<>();
-    int nowPosition = 0;
+
     public void nextClick(View view){
+        Integer randNum = rand.nextInt(100);
+        text.setText("image" + randNum);
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
+
         startActivity(intent);
-        if (nowPosition == nums.size()){
-            Integer randNum = rand.nextInt(100);
-            nums.add(randNum);
-        }
-        else {
-            text.setText("image" + nums.get(nowPosition));
-        }
-        nowPosition += 1;
+
 
     }
 
     public void backClick(View view){
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        startActivity(intent);
-        if (nowPosition == 0){
-            finish();
-        }else {
-            text.setText("image" + nums.get(nowPosition));
-        }
-        nowPosition -= 1;
+        finish();
     }
 }
