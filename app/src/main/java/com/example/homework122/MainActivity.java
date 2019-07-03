@@ -17,11 +17,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         text = findViewById(R.id.imageName);
+        Integer randNum = rand.nextInt(100);
+        text.setText("image" + randNum);
     }
 
     public void nextClick(View view){
-        Integer randNum = rand.nextInt(100);
-        text.setText("image" + randNum);
+
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
 
         startActivity(intent);
